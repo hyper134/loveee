@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mai</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #ff9a9e, #fecfef);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1, p {
+            margin: 0.5rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #ff9a9e;
+            background: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 2rem;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .btn:hover {
+            background-color: #ffe5e9;
+            transform: scale(1.05);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        let step = 1;
+
+        function nextStep() {
+            const content = document.getElementById('content');
+            const buttonContainer = document.getElementById('button-container');
+            if (step === 1) {
+                content.innerHTML = "দেখ মাই আমি একটা বুজতে পারসি  যে, তোর প্রতি আমার অনুভূতিগুলো খুব বিশেষ হয়ে উঠেছে।";
+            } else if (step === 2) {
+                content.innerHTML = "যখনই তোরে দেখি, মনে হয় যেন সব কিছু আরও উজ্জ্বল হয়ে ওঠে। তোমার হাসি,  কথা বলার ধরন, সব কিছুতেই একধরনের শান্তি খুজে পাই🙃";
+            } else if (step === 3) {
+                content.innerHTML = "যখনই তোর সাথে কথা বলি, আমার অনুভূতিগুলো আরও স্পষ্ট হয়। আমি শুধু এটুকু বলছি,";
+            } else if (step === 4) {
+                content.innerHTML = "কে কি বলে বলুক বাসায় বলতে হইলে আমিই বলমু।  তুই শুধু আমার পাশে থাকবি।আর কিছুই চাই না😊";
+            } else if (step === 5) {
+                content.innerHTML = "Do you love me?";
+                buttonContainer.innerHTML = `
+                    <button class="btn" onclick="yes()">Yes</button>
+                    <button class="btn" onclick="no()">No</button>
+                `;
+                return;
+            }
+            step++;
+        }
+
+        function yes() {
+            window.location.href = "love-you.html"; // Redirect to next page
+        }
+
+        function no() {
+            alert("Come on, you know you do! 😘");
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>My Proposal</h1>
+        <p id="content">Click "Next" to begin...</p>
+        <div id="button-container">
+            <button class="btn" onclick="nextStep()">Next</button>
+        </div>
+    </div>
+</body>
+</html>
